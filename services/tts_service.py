@@ -92,34 +92,7 @@ class TTSProvider(abc.ABC):
         return True, "OK"
 
 
-class PiperTTSProvider(TTSProvider):
-    """Piper TTS via the `piper` CLI. Voice = path to a .onnx model file."""
 
-    def _binary(self) -> str:
-        return self.config.get("tts.piper_binary", "piper")
-
-    def is_available(self) -> tuple[bool, str]:
-        if binary_available(self._binary()):
-            return True, "Piper found"
-        return False, "Piper binary not found. Set tts.piper_binary in Settings."
-
-    def synthesize(self, text: str, voice: str, output_path: str,
-                   speed: float = 1.0, pitch: float = 0.0) -> str:
-        if not voice:
-            raise RuntimeError("No Piper voice model selected (.onnx path required).")
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-        length_scale = 1.0 / speed if speed > 0 else 1.0
-        cmd = [
-            self._binary(), "--model", voice,
-            "--length_scale", f"{length_scale:.3f}",
-            "--output_file", output_path,
-        ]
-        logger.debug("Piper cmd: %s", " ".join(cmd))
-        proc = subprocess.run(cmd, input=text, capture_output=True, text=True,
-                              encoding="utf-8", errors="replace")
-        if proc.returncode != 0:
-            raise RuntimeError(f"Piper failed: {proc.stderr[-500:]}")
-        return output_path
 
 
 class XTTSProvider(TTSProvider):
@@ -413,8 +386,6 @@ def get_tts_provider(engine: str, config: AppConfig | None = None) -> TTSProvide
         return EdgeTTSProvider(config)
     if engine in ("voxcpm", "voxcpm2"):
         return VoxCPMProvider(config)
-    if engine == "piper":
-        return PiperTTSProvider(config)
     if engine == "xtts":
         return XTTSProvider(config)
     if engine == "custom":

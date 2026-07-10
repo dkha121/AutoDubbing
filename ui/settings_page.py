@@ -89,10 +89,8 @@ class SettingsPage(QWidget):
         tts = QGroupBox("TTS")
         ttsform = QFormLayout(tts)
         self.tts_engine = QComboBox(); self.tts_engine.addItems(TTS_ENGINES)
-        self.tts_engine.setCurrentText(config.get("tts.default_engine", "piper"))
-        self.piper_binary = QLineEdit(config.get("tts.piper_binary", "piper"))
+        self.tts_engine.setCurrentText(config.get("tts.default_engine", "edge"))
         ttsform.addRow("Default engine", self.tts_engine)
-        ttsform.addRow("Piper binary", self.piper_binary)
         root.addWidget(tts)
 
         # ---- render ----
@@ -168,7 +166,6 @@ class SettingsPage(QWidget):
         self.config.set("router.token", self.router_token.text().strip())
         self.config.set("router.model", self.router_model.text().strip())
         self.config.set("tts.default_engine", self.tts_engine.currentText())
-        self.config.set("tts.piper_binary", self.piper_binary.text())
         self.config.set("render.enable_cuda", self.enable_cuda.isChecked())
         self.config.set("batch.max_concurrent_jobs", self.max_jobs.value())
         self.config.set("ui.theme", self.theme.currentText())

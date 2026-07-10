@@ -30,6 +30,9 @@ edge-tts>=6.1.0
 # XTTS-v2 (heavy, optional):
 # TTS>=0.22.0
 
+# ---- VoxCPM Local TTS (Voice Cloning) ----
+voxcpm
+
 # ---- Local translation engines (optional, heavy) ----
 # transformers>=4.40.0
 # sentencepiece>=0.2.0
