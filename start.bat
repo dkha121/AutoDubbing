@@ -23,7 +23,13 @@ if errorlevel 1 (
     exit /b 1
 )
 
-python app.py
+if exist .venv\Scripts\python.exe (
+    echo [INFO] Phat hien moi truong ao .venv. Dang chay ung dung...
+    .venv\Scripts\python.exe app.py
+) else (
+    echo [WARNING] Khong tim thay moi truong ao .venv. Dang chay bang Python he thong...
+    python app.py
+)
 
 REM Neu app thoat do loi, giu cua so de doc thong bao.
 if errorlevel 1 (
