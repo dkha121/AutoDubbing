@@ -1,0 +1,88 @@
+{
+  "ffmpeg_path": "ffmpeg",
+  "ffprobe_path": "ffprobe",
+  "default_output_folder": "./data/outputs",
+  "temp_folder": "./data/temp",
+  "models_folder": "./data/models",
+
+  "asr": {
+    "default_model": "small",
+    "device": "auto",
+    "compute_type": "auto",
+    "default_language": "auto"
+  },
+
+  "translation": {
+    "default_engine": "google",
+    "default_style": "Natural Vietnamese",
+    "chunk_size": 40,
+    "max_retries": 3
+  },
+  "router": {
+    "base_url": "",
+    "token": "",
+    "model": "ag/gemini-3.1-pro-low"
+  },
+
+  "api_keys": {
+    "openai_api_key": "",
+    "gemini_api_key": ""
+  },
+  "openai": {
+    "model": "gpt-4o-mini",
+    "base_url": ""
+  },
+  "gemini": {
+    "model": "gemini-1.5-flash"
+  },
+
+  "tts": {
+    "default_engine": "edge",
+    "piper_binary": "piper",
+    "piper_voices_folder": "./data/models/piper",
+    "edge_voice_female": "vi-VN-HoaiMyNeural",
+    "edge_voice_male": "vi-VN-NamMinhNeural",
+    "default_voice_male": "vi-VN-NamMinhNeural",
+    "default_voice_female": "vi-VN-HoaiMyNeural",
+    "default_speed": 1.2,
+    "voxcpm": {
+      "model": "openbmb/VoxCPM2",
+      "mode": "default",
+      "reference_wav": "",
+      "prompt_text": "",
+      "design_prompt": ""
+    }
+  },
+
+  "render": {
+    "device": "cpu",
+    "enable_cuda": false,
+    "default_encoder": "libx264",
+    "default_format": "mp4",
+    "default_audio_codec": "aac",
+    "default_crf": 20,
+    "default_preset": "medium"
+  },
+
+  "subtitle_style": {
+    "font": "Arial",
+    "font_size": 24,
+    "primary_color": "&H00FFFFFF",
+    "outline_color": "&H00000000",
+    "outline": 2,
+    "shadow": 1,
+    "alignment": 2,
+    "margin_v": 30,
+    "max_chars_per_line": 42
+  },
+
+  "batch": {
+    "max_concurrent_jobs": 1
+  },
+
+  "ui": {
+    "theme": "dark"
+  },
+
+  "temp_cleanup_on_exit": false
+}

@@ -1,0 +1,39 @@
+# ---- GUI ----
+PySide6>=6.6.0
+
+# ---- Speech to text (local) ----
+faster-whisper>=1.0.0
+
+# ---- Subtitle parsing ----
+srt>=3.5.3
+webvtt-py>=0.5.1
+
+# ---- Data models / validation ----
+pydantic>=2.5.0
+
+# ---- HTTP for optional API translation providers ----
+requests>=2.31.0
+
+# ---- Translation (local, free, no API key — default engine) ----
+deep-translator>=1.11.4
+
+# ---- TTS (free, online, no API key — default engine, Vietnamese voices) ----
+edge-tts>=6.1.0
+
+# ---- Optional API SDKs (only needed if you use OpenAI / Gemini engines) ----
+# openai>=1.30.0
+# google-generativeai>=0.7.0
+
+# ---- TTS (local) ----
+# Piper is invoked as an external binary (download separately) OR via piper-tts:
+# piper-tts>=1.2.0
+# XTTS-v2 (heavy, optional):
+# TTS>=0.22.0
+
+# ---- Local translation engines (optional, heavy) ----
+# transformers>=4.40.0
+# sentencepiece>=0.2.0
+# torch>=2.2.0  # install the CUDA build matching your driver from pytorch.org
+
+# ---- Testing ----
+pytest>=8.0.0
