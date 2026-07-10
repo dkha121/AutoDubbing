@@ -26,7 +26,7 @@ class TTSPage(QWidget):
         form = QFormLayout(opts)
         self.engine_combo = QComboBox()
         self.engine_combo.addItems(TTS_ENGINES)
-        self.engine_combo.setCurrentText(self.state.config.get("tts.default_engine", "piper"))
+        self.engine_combo.setCurrentText(self.state.config.get("tts.default_engine", "edge"))
         self.voice_male = QLineEdit(self.state.config.get("tts.default_voice_male", ""))
         self.voice_female = QLineEdit(self.state.config.get("tts.default_voice_female", ""))
         male_row = self._with_browse(self.voice_male)
